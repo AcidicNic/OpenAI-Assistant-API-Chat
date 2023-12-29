@@ -24,7 +24,7 @@ export default function Chat() {
     setChatStarted,
     chatStarted: chatHasStarted,
     chatManager, setChatManager,
-    assistantId,
+    assistantId, setAssistantId,
     isMessageLoading, setIsMessageLoading,
     progress, setProgress, 
     isLoadingFirstMessage,
@@ -69,7 +69,7 @@ export default function Chat() {
       {chatHasStarted || assistantId || isLoadingFirstMessage  ? (
         <MessageList chatMessages={chatMessages} statusMessage={statusMessage} isSending={isSending} progress={progress} isFirstMessage={isLoadingFirstMessage} fileDetails={chatFileDetails} />
       ) : (
-        <WelcomeForm {...{assistantName, setAssistantName, assistantDescription, setAssistantDescription, assistantModel, setAssistantModel, startChatAssistant, isButtonDisabled, isStartLoading, statusMessage, fileIds, setFileIds}} />
+        <WelcomeForm {...{assistantName, setAssistantName, assistantId, setAssistantId, assistantDescription, setAssistantDescription, assistantModel, setAssistantModel, startChatAssistant, isButtonDisabled, isStartLoading, statusMessage, fileIds, setFileIds}} />
       )}
       <InputForm {...{input: inputmessage, setInput: setInputmessage, inputRef, formRef, disabled: isButtonDisabled || !chatManager, chatStarted: chatMessages.length > 0, isSending, isLoading: isMessageLoading, chatUploadedFiles, setChatUploadedFiles, chatFileDetails, setChatFileDetails, chatManager, setChatStarted, setChatMessages, setStatusMessage, setIsSending, setProgress, setIsLoadingFirstMessage}} />
     </main>

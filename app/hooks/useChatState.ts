@@ -23,13 +23,13 @@ export const useChatState = () => {
   const [threadId, setThreadId] = useState<string | null>(null);
   const [isStartLoading, setStartLoading] = useState(false);
   const [isSending, setIsSending] = useState(false);
-  const [initialThreadMessage, setInitialThreadMessage] = useState('You are a Pirate! introduce yourself');
+  const [initialThreadMessage, setInitialThreadMessage] = useState('introduce yourself');
   const [statusMessage, setStatusMessage] = useState('');
   const counter = useRef(0);
   const inputRef = useRef(null);
   const formRef = useRef(null);
   const [chatManager, setChatManager] = useState<ChatManager | null>(null);
-  const [assistantId, setAssistantId] = useState<string | null>(process.env.REACT_APP_ASSISTANT_ID || '');
+  const [assistantId, setAssistantId] = useState<string>(process.env.REACT_APP_ASSISTANT_ID || '');
   const [isMessageLoading, setIsMessageLoading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isLoadingFirstMessage, setIsLoadingFirstMessage] = useState(false);

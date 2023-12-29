@@ -8,6 +8,7 @@ import {
   createThread,
   runAssistant,
   deleteFile,
+  retrieveAssistant,
 } from '../services/api';
 
 interface AssistantDetails {
@@ -27,6 +28,12 @@ interface AssistantDataResponse {
 interface ThreadDataResponse {
   threadId: string;
 }
+
+interface AssistantInfo {
+  id: string;
+  name: string;
+}
+
 
 
 /**
@@ -142,3 +149,22 @@ export const deleteUploadedFile = async (fileId: string, setStatusMessage: (mess
     return false;
   }
 };
+
+
+// export const handleExistingAssistants = (assistantIds: string[]) => {
+//   console.log("Existing Assistants:", assistantIds);
+//   if (assistantIds) {
+//     const assistantInfo: AssistantInfo[] = await Promise.all(assistantIds.map(async (assistantId: string) => {
+//   const assistant: AssistantInfo = await retrieveAssistant(assistantId);
+//   console.log(assistant);
+//   if (assistant.ok && assistant.assistant) {
+//     return { id: assistant.assistant.id, name: assistant.assistant.name };
+//   }
+//     console.log('poopoopeepee')
+//     console.log(assistantInfo);
+//     if (assistantInfo) {
+//       return assistantInfo;
+//     }
+//     return null;
+//   }
+// }

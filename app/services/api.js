@@ -91,6 +91,23 @@ export const uploadImageAndGetDescription = async (base64Image) => {
     return data;
   };
   
+  // Retrieves an assistant
+  export const retrieveAssistant = async (assistantId) => {
+    console.log('Retrieving assistant...');
+    const response = await fetch('http://localhost:3000/api/retrieveAssistant', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ assistantId }),
+    });
+    if (!response.ok) {
+      console.error('Failed to retrieve assistant');
+      throw new Error('Failed to retrieve assistant');
+    }
+    const data = await response.json();
+    console.log('Assistant retrieved successfully.');
+    return data;
+  };
+  
   // Checks the status of a run
   export const checkRunStatus = async (threadId, runId) => {
     console.log('Checking run status...');
